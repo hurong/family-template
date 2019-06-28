@@ -1,0 +1,12 @@
+{
+  "name": "{{ name }}",
+  "version": "{{version}}",
+  "description": "{{ description }}",
+  "author": "{{author}}",
+  "main": "index.ts",
+  "keywords": [
+    "cli",
+    "vue-ssr",
+    "webpack"
+  ]
+}
