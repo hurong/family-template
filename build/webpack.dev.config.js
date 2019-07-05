@@ -3,6 +3,7 @@ const baseConf = require('./webpack.base.config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
+const BASE_URL = process.env.baseUrl;
 
 module.exports = merge(baseConf, {
   devtool: 'inline-source-map',
@@ -21,7 +22,15 @@ module.exports = merge(baseConf, {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
     port: 8080,
-    historyApiFallback: true,
+    //historyApiFallback: true,
+    historyApiFallback: {
+      rewrites: [
+        {
+          from: /.*/,
+          to: path.posix.join(BASE_URL ? `/${BASE_URL}/` : '', 'index.html'),
+        },
+      ],
+    }
   },
   module: {
     rules: [

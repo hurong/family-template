@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "prod": "webpack --config build/webpack.prod.config.js",
-    "dev": "cross-env base_url=family webpack-dev-server --open chrome --mode development --config build/webpack.dev.config.js"
+    "dev": "cross-env baseUrl=family webpack-dev-server --open chrome --mode development --config build/webpack.dev.config.js"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
