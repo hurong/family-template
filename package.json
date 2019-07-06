@@ -1,6 +1,6 @@
 {
-  "name": "name",
-  "version": "0.0.1",
+  "name": "{{ name }}",
+  "version": "{{ version }}",
   "description": "{{ description }}",
   "author": "{{ author }}",
   "license": "ISC",
