@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
+  <div class="home pt-20">
     <div class="famity-menu">
-      <h3>{{ title }}</h3>
+      <h2>{{ title }}</h2>
     </div>
   </div>
 </template>

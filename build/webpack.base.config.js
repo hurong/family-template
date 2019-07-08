@@ -1,8 +1,9 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');//将定义过的其它规则复制并应用到 .vue 文件里相应语言的块
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BASE_URL = process.env.baseUrl;
 const webpack = require('webpack');
+const isProd = process.env.NODE_ENV === 'production';
 
 const resolve = (dir) => {
   return path.join(__dirname, '..', dir)
@@ -11,7 +12,7 @@ const resolve = (dir) => {
 module.exports = {
   entry: resolve('/src/index.ts'),
   output: {
-    filename: '[name].bundle.js',
+    filename: isProd ? '[name].[hash:8].bundle.js' : '[name].bundle.js',
     path: resolve('dist'),
     publicPath: BASE_URL ? `/${BASE_URL}/` : '',
   },
@@ -52,8 +53,18 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(), //删除打包的目录
     new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Output Management',
+      template: 'index.html',// 引入模板
+      filename: 'index.html',
+      minify: { // 对index.html压缩
+        collapseWhitespace: isProd, // 去掉index.html的空格
+        removeAttributeQuotes: isProd, // 去掉引号
+      },
+      hash: true,// 去掉上次浏览器的缓存（使浏览器每次获取到的是最新的html）
+    }),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env.BASE_URL': JSON.stringify(BASE_URL)
     })

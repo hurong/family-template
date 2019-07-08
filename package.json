@@ -12,8 +12,8 @@
     "webpack"
   ],
   "scripts": {
-    "prod": "webpack --config build/webpack.prod.config.js",
-    "dev": "cross-env baseUrl=family webpack-dev-server --open chrome --mode development --config build/webpack.dev.config.js"
+    "prod": "cross-env baseUrl=family webpack --config build/webpack.prod.config.js",
+    "dev": "cross-env baseUrl=family port=9000 webpack-dev-server --open chrome --mode development --config build/webpack.dev.config.js"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

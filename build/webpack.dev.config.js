@@ -1,27 +1,18 @@
 const merge = require('webpack-merge');
 const baseConf = require('./webpack.base.config');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
 const path = require('path');
 const BASE_URL = process.env.baseUrl;
+const PORT = process.env.port || 9000; 
 
 module.exports = merge(baseConf, {
   devtool: 'inline-source-map',
   mode: 'development',
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Output Management',
-      template: 'index.html',
-      filename: 'index.html',
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-  ],
   devServer: {
     hot: true,
     open: true,
     contentBase: path.join(__dirname, "dist"),
     compress: true,
-    port: 8080,
+    port: PORT,
     //historyApiFallback: true,
     historyApiFallback: {
       rewrites: [

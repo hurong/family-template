@@ -1,7 +1,5 @@
 <template>
   <div class="content">
-    <!-- <div class="family-title">{{ title }}
-    </div> -->
     <router-view/>
   </div>
 </template>
@@ -18,12 +16,11 @@ export default class App extends Vue {
 }
 </script>
 
-<style>
-.family-title {
-  color: #39a0ce;
-  text-align: center;
-  font-size: 20px;
-  box-sizing: border-box;
+<style lang="less" scoped>
+@bgColor: #f5f5f5;
+.content {
+  background-color: @bgColor;
 }
 </style>
+
 

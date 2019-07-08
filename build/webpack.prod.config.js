@@ -6,11 +6,13 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 //4.x之后提取css
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = merge(baseConf, {
   devtool: 'source-map',
   mode: 'production',
   plugins: [
+    new CleanWebpackPlugin(), //删除打包的目录
     // 分离css插件参数为提取出去的路径
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].min.css',
