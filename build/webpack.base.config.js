@@ -26,9 +26,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|svg|jpg|gif|eot|ttf|woff)$/,
         use: [
-          'file-loader',
+          {
+           loader: 'file-loader',
+           options: {
+             name: '[name].[ext]',
+             publicPath: '../static/iconfont',
+             outputPath: 'static/iconfont',
+           }
+          },
         ],
       },
       {
