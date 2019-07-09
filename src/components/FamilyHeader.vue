@@ -1,6 +1,6 @@
 <template>
   <header>
-    <select v-model="selectedLanguage" class="mt-20">
+    <select v-model="selectedLanguage" class="mt-20 ml-10">
       <option disabled value="">请选择</option>
       <option value="zh-CN">中文(Chinese)</option>
       <option value="en-US">英文(English)</option>
