@@ -21,7 +21,16 @@ module.exports = merge(baseConf, {
           to: path.posix.join(BASE_URL ? `/${BASE_URL}/` : '', 'index.html'),
         },
       ],
-    }
+    },
+    proxy: {
+      [`/${BASE_URL}/api`]: {
+        target: 'https://tcc.taobao.com',
+        changeOrigin: true,
+        pathRewrite: {
+          [`/${BASE_URL}/api`]: '/',
+        },
+      }
+    },
   },
   module: {
     rules: [

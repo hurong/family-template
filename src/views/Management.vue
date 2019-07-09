@@ -8,8 +8,11 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import { TranslateResult } from 'vue-i18n';
 
 export default class Management extends Vue{
-  title: string = 'Management Page!';
+  get title(): string|TranslateResult {
+    return this.$t('common.management');
+  }
 }
 </script>

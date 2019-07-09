@@ -1,0 +1,14 @@
+{
+  "common": {
+    "language": "language",
+    "home": "Home Page!",
+    "management": "Management Page!"
+  },
+  "home": {
+    "01": "Input Tel Number",
+    "02": "Tel Number",
+    "03": "Basic Information",
+    "04": "Area",
+    "05": "Operator"
+  }
+}
